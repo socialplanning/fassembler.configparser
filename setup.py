@@ -27,6 +27,8 @@ setup(name='fassembler.configparser',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
+      [topp.zcmlloader]
+      opencore = fassembler.configparser
       # -*- Entry points: -*-
       """,
       )
