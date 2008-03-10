@@ -1,6 +1,11 @@
 import os
 import ConfigParser
 
+def FCParser(object):
+
+    def get(self, option):
+        return get_config(option)
+
 def get_config(option, default=None, ini_path=None):
 
     if default is None:
