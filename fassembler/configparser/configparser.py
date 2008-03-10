@@ -11,7 +11,7 @@ def get_config(option):
 
     parser.read(ini_path)
 
-    real_option = ' '.join(env_name, option)
+    real_option = ' '.join([env_name, option])
     try:
         return parser.get('applications', real_option)
     except ConfigParser.NoOptionError:
