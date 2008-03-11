@@ -1,7 +1,7 @@
 import os
 import ConfigParser
 
-def FCParser(object):
+class FCParser(object):
 
     def get(self, option):
         return get_config(option)
