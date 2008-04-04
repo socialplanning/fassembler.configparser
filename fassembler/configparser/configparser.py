@@ -12,8 +12,7 @@ def get_config(option, default=None, ini_path=None):
     if default is None:
         default = ''
 
-    env = os.environ['VIRTUAL_ENV']
-    #env = os.path.split(sys.prefix())[0]
+    env = sys.prefix
     env_name, env_path = (os.path.basename(env), os.path.dirname(env))
 
     if ini_path is None:
