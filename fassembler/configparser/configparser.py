@@ -1,4 +1,5 @@
 import os
+import sys
 import ConfigParser
 
 class FCParser(object):
@@ -12,6 +13,7 @@ def get_config(option, default=None, ini_path=None):
         default = ''
 
     env = os.environ['VIRTUAL_ENV']
+    #env = os.path.split(sys.prefix())[0]
     env_name, env_path = (os.path.basename(env), os.path.dirname(env))
 
     if ini_path is None:
