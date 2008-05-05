@@ -4,8 +4,8 @@ import ConfigParser
 
 class FCParser(object):
 
-    def get(self, option):
-        return get_config(option)
+    def get(self, option, default=None):
+        return get_config(option, default)
 
 def get_config(option, default=None, ini_path=None):
 
