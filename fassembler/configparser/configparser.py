@@ -26,7 +26,10 @@ def get_config(option, default=None, ini_path=None):
     try:
         return parser.get('applications', real_option)
     except ConfigParser.NoOptionError:
-        pass
+        try:
+            return parser.get('applications', option)
+        except ConfigParser.NoOptionError:
+            pass
     try:
         return parser.get('general', option)
     except ConfigParser.NoOptionError:
