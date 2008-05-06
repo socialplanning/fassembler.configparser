@@ -12,6 +12,8 @@ def get_config(option, default=None, ini_path=None):
     if default is None:
         default = ''
 
+    # Figure out what VIRTUAL_ENV we're in.
+    # In a fassembler build, this tells you what "application" we're in.
     env = os.path.normpath(sys.prefix)
     env_name, env_path = (os.path.basename(env), os.path.dirname(env))
 
@@ -33,4 +35,8 @@ def get_config(option, default=None, ini_path=None):
     try:
         return parser.get('general', option)
     except ConfigParser.NoOptionError:
+        pass
+    try:
+        return parser.get('google_maps_keys', option)
+    except (ConfigParser.NoOptionError, ConfigParser.NoSectionError):
         return default
