@@ -18,6 +18,8 @@ def get_config(option, default=None, ini_paths=None):
     env_name, env_path = (os.path.basename(env), os.path.dirname(env))
 
     if ini_paths is None:
+        # order is important here: if default-build.ini and build.ini define the
+        # same setting, the one in build.ini will win because it comes after.
         ini_paths = [os.sep.join([env_path, 'requirements', 'default-build.ini']),
                      os.sep.join([env_path, 'etc', 'build.ini'])]
 
