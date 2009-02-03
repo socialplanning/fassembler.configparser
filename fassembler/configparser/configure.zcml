@@ -1,0 +1,11 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+	   
+    <class class="fassembler.configparser.configparser.FCParser">
+      <implements interface="opencore.utility.interfaces.IProvideSiteConfig" />
+    </class>
+    
+    <utility factory="fassembler.configparser.configparser.FCParser"
+             provides="opencore.utility.interfaces.IProvideSiteConfig"
+             />
+
+</configure>
