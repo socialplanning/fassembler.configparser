@@ -2,10 +2,18 @@ import os
 import sys
 import ConfigParser
 
-class FCParser(object):
-
-    def get(self, option, default=None):
-        return get_config(option, default)
+def asbool(obj):
+    """XXX cargo culted from paste.deploy.converters"""
+    if isinstance(obj, (str, unicode)):
+        obj = obj.strip().lower()
+        if obj in ['true', 'yes', 'on', 'y', 't', '1']:
+            return True
+        elif obj in ['false', 'no', 'off', 'n', 'f', '0']:
+            return False
+        else:
+            raise ValueError(
+                "String is not true/false: %r" % obj)
+    return bool(obj)
 
 def get_config(option, default=None, ini_paths=None):
 
@@ -43,3 +51,7 @@ def get_config(option, default=None, ini_paths=None):
         return parser.get('google_maps_keys', option)
     except (ConfigParser.NoOptionError, ConfigParser.NoSectionError):
         return default
+
+class FCParser(object):
+    def get(self, option, default=None):
+        return get_config(option, default)
