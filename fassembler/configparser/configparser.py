@@ -38,14 +38,14 @@ def get_config(option, default=None, ini_paths=None):
     real_option = '_'.join([env_name, option])
     try:
         return parser.get('applications', real_option)
-    except ConfigParser.NoOptionError:
+    except (ConfigParser.NoOptionError, ConfigParser.NoSectionError):
         try:
             return parser.get('applications', option)
-        except ConfigParser.NoOptionError:
+        except (ConfigParser.NoOptionError, ConfigParser.NoSectionError):
             pass
     try:
         return parser.get('general', option)
-    except ConfigParser.NoOptionError:
+    except (ConfigParser.NoOptionError, ConfigParser.NoSectionError):
         pass
     try:
         return parser.get('google_maps_keys', option)
