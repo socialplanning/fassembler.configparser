@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '0.2.2dev'
+version = '0.2.2'
 
 setup(name='fassembler.configparser',
       version=version,
@@ -15,7 +15,7 @@ setup(name='fassembler.configparser',
         ],
       keywords='',
       author='Ethan Jucovy',
-      author_email='ejucovy@openplans.org',
+      author_email='opencore-dev@lists.coactivate.org',
       url='',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
